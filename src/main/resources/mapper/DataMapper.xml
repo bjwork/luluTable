@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.bjspace.mapper.DataMapper">
+	<insert id="insertInfo" parameterType="java.util.Map">
+		INSERT INTO 
+		${tableName} 
+		${condition1} 
+		values ${condition2} 
+	</insert>
+	
+	<delete id="deleteInfo" parameterType="java.util.Map">
+		DELETE FROM 
+		${tableName} where 1=1 
+		<if test="whereStr != null">
+			 ${whereStr} 
+		</if>
+	</delete>
+
+	<update id="updateInfo" parameterType="java.util.Map">
+		UPDATE 
+		${tableName} SET ${condition1} where 1=1 
+		<if test="whereStr != null">
+			 ${whereStr} 
+		</if>
+	</update>
+
+	<select id="queryInfo" parameterType="java.util.Map" resultType="java.util.Map">
+		select ${condition1} 
+		from ${tableName} 
+		where 1=1  
+		<if test="condition2 != null">
+			${condition2} 
+		</if>
+	</select>
+
+
+	
+	
+</mapper>
